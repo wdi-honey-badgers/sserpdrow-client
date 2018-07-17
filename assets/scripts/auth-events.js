@@ -22,7 +22,7 @@ const onSignIn = function (event) {
   console.log('Lt. Commander Data is ', data)
   authApi.signIn(data)
     .then(authUi.signInSuccess)
-    // .then(events.onGetCookies)
+    // .then(events.onGetPosts)
     .catch(authUi.error)
 }
 

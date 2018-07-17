@@ -38,58 +38,58 @@ const signOutSuccess = function (signOutSuccess) {
   // $('.signed-in').hide()
   // $('.pre-sign-in').show()
 }
-//
-// const addPostsSuccess = function (data) {
-//   formResets()
+
+const addPostsSuccess = function (data) {
+  formResets()
   // clearText()
 //   $('#info').append('Noted!')
-// }
-//
-// const getPostsSuccess = (data) => {
+}
+
+const getPostsSuccess = (data) => {
 //   postTable(data)
-//   formResets()
+  formResets()
   // clearText()
-//   store.post = data.posts
-// }
-//
+  store.post = data.posts
+}
+
 // const postTable = function (data) {
 //   $('td').remove()
 //   const showPostsHtml = showPostsTemplate({ posts: data.posts })
 //   $('thead').append(showPostsHtml)
 // }
 //
-// const editPostsSuccess = function (data) {
-//   formResets()
+const editPostsSuccess = function (data) {
+  formResets()
   // clearText()
 //   $('#edit-posts').hide()
 //   $('#delete-posts').hide()
 //   $('#info').append('Noted!')
-// }
-//
-// const deletePostsSuccess = function (data) {
+}
+
+const deletePostsSuccess = function (data) {
 //   $('#edit-posts').hide()
 //   $('#delete-posts').hide()
-//   formResets()
+  formResets()
   // clearText()
 //   $('#info').append('Noted!')
-// }
+}
 
 const error = function () {
   console.log('errored!')
   // clearText()
   formResets()
-  $('#info').append('Error! Try again.')
+  // $('#info').append('Error! Try again.')
 }
 
 const formResets = function () {
   if (signedIn === true) {
-    document.getElementById('edit-posts-form').reset()
-    // document.getElementById('change-pw-form').reset()
-    // document.getElementById('add-post-form').reset()
-    // document.getElementById('delete-posts-form').reset()
+    $('#edit-posts-form').reset()
+    $('#change-pw-form').reset()
+    $('#add-post-form').reset()
+    $('#delete-posts-form').reset()
   } else {
-    document.getElementById('sign-in-form').reset()
-    document.getElementById('sign-up-form').reset()
+    $('#sign-in-form').reset()
+    $('#sign-up-form').reset()
   }
 }
 
@@ -102,9 +102,9 @@ module.exports = {
   signInSuccess,
   changePasswordSuccess,
   signOutSuccess,
-  // addPostsSuccess,
-  // getPostsSuccess,
-  // editPostsSuccess,
-  // deletePostsSuccess,
+  addPostsSuccess,
+  getPostsSuccess,
+  editPostsSuccess,
+  deletePostsSuccess,
   error
 }

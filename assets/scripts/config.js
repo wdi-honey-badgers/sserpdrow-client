@@ -2,7 +2,7 @@
 
 let apiUrl
 const apiUrls = {
-  production: 'https://honey-badgers-sserpdrow-api.herokuapp.com/',
+  production: 'https://honey-badgers-sserpdrow-api.herokuapp.com',
   development: 'http://localhost:4741'
 }
 
