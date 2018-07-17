@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Sserpdrow</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,47 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+
+      <h1>Sserp, Drow?</h1>
+      <h2>Not much. Sserp with you?</h2>
+
+      <nav class="sidebar">
+        <ul class="user">
+          <li>Their</li>
+          <li>Posts</li>
+          <li>Go</li>
+          <li>Here</li>
+        </ul>
+      </nav>
+
+      <nav class="sidebar">
+      <ul class="user visitor">
+        <li>Organization 1 is a link</li>
+        <li>Organization 2 is a link</li>
+        <li>Organization 3 is a link</li>
+        <li>Organization 4 is a link</li>
+      </ul>
+    </nav>
+
+    <div>
+      <button class="visitor" id="sign-in">Log In</button>
+      <button class="visitor" id="sign-up">Make an Account</button>
+      <button class="user" id="change-pw">Change Password</button>
+      <button class="user" id="sign-out">Sign Out</button>
+    </div>
+
+    <div class="pages">
+      Webpages links get populated here.
+      <!--  id shpould be populated by handlebars to be unique  -->
+      <button class="user" id="update">Update</button>
+      <button class="user" id="delete">Delete</button>
+    </div>
+
+    <div class="posts">
+      Blog posts get populated here.
+      <!--  id shpould be populated by handlebars to be unique  -->
+      <button class="user" id="update">Update</button>
+      <button class="user" id="delete">Delete</button>
+    </div>
     </body>
 </html>
