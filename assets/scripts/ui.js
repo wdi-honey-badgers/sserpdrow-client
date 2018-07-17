@@ -84,7 +84,7 @@ const error = function () {
 const formResets = function () {
   if (signedIn === true) {
     document.getElementById('edit-posts-form').reset()
-    document.getElementById('change-pw-form').reset()
+    // document.getElementById('change-pw-form').reset()
     // document.getElementById('add-post-form').reset()
     // document.getElementById('delete-posts-form').reset()
   } else {

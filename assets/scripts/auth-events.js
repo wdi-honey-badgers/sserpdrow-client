@@ -31,17 +31,17 @@ const onChangePassword = function (event) {
   console.log('you pushed the password button!')
   const data = getFormFields(event.target)
   console.log('Lt. Commander Data is ', data)
-//   authApi.changePassword(data)
-//     .then(authUi.changePasswordSuccess)
-//     .catch(authUi.error)
+  authApi.changePassword(data)
+    .then(authUi.changePasswordSuccess)
+    .catch(authUi.error)
 }
 
 const onSignOut = function (event) {
   event.preventDefault()
   console.log("nooooo don't leave meeeee :'(")
-//   authApi.signOut()
-//     .then(authUi.signOutSuccess)
-//     .catch(authUi.error)
+  authApi.signOut()
+    .then(authUi.signOutSuccess)
+    .catch(authUi.error)
 }
 
 module.exports = {
