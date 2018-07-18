@@ -4,7 +4,8 @@ const store = require('./store')
 
 // Assistant Functions
 const clearMessageDiv = function () {
-  $('#userFacingMsg').html('')
+  $('#userFacingAuthMsg').html('')
+  $('#userFacingPostMsg').html('')
 }
 
 // The terms "external" and "internal" are references to visitor view vs user signed-in view. Someone who is not signed in will see the "external" view state, where as user who are signed-in will see the "internal" view state.
@@ -32,12 +33,14 @@ const clearFormFields = function () {
   document.getElementById('sign-up-form').reset()
   document.getElementById('sign-in-form').reset()
   document.getElementById('change-pw-form').reset()
+  document.getElementById('create-post').reset()
+  document.getElementById('update-post').reset()
 }
 
-// Success & Error Functions
-const signUpSuccess = function (signUpSuccess) {
+// Auth Success
+const signUpSuccess = function () {
   clearMessageDiv()
-  $('#userFacingMsg').append('You now have an account. Please sign in.')
+  $('#userFacingAuthMsg').append('You now have an account. Please sign in.')
   clearFormFields()
   console.log('sign up success')
 }
@@ -45,23 +48,23 @@ const signUpSuccess = function (signUpSuccess) {
 const signInSuccess = function (data) {
   clearMessageDiv()
   store.user = data.user
-  $('#userFacingMsg').append('You have signed in.')
+  $('#userFacingAuthMsg').append('You have signed in.')
   clearFormFields()
   revealChangePassSignOut()
   hideSignUpSignIn()
   console.log('log in success')
 }
 
-const changePasswordSuccess = function (changePasswordSuccess) {
+const changePasswordSuccess = function () {
   clearMessageDiv()
-  $('#userFacingMsg').append('Password changed, now dont forget it!')
+  $('#userFacingAuthMsg').append('Password changed, now dont forget it!')
   clearFormFields()
   console.log('change password success')
 }
 
-const signOutSuccess = function (signOutSuccess) {
+const signOutSuccess = function () {
   clearMessageDiv()
-  $('#userFacingMsg').append('Bye. Come again!')
+  $('#userFacingAuthMsg').append('Bye. Come again!')
   clearFormFields()
   hideChangePassSignOut()
   revealSignUpSignIn()
@@ -69,47 +72,49 @@ const signOutSuccess = function (signOutSuccess) {
   console.log('successfully left me')
 }
 
+// Auth Error
+const authError = function () {
+  clearMessageDiv()
+  $('#userFacingAuthMsg').append('Auth related error!')
+  clearFormFields()
+  console.log('errored!')
+}
+
+// Post Success
 const addPostsSuccess = function (data) {
+  clearMessageDiv()
+  $('#userFacingPostMsg').append('Sweet, you just created a post!')
+  clearFormFields()
   console.log('Post successfully created!\n', data)
-  // formResets()
-  // clearText()
-//   $('#info').append('Noted!')
 }
 
 const getPostsSuccess = (data) => {
-//   postTable(data)
-  // formResets()
-  // clearText()
+  clearMessageDiv()
+  $('#userFacingPostMsg').append('All of your posts have been retrieved.')
+  clearFormFields()
   store.post = data.posts
 }
 
-// const postTable = function (data) {
-//   $('td').remove()
-//   const showPostsHtml = showPostsTemplate({ posts: data.posts })
-//   $('thead').append(showPostsHtml)
-// }
-//
 const updatePostsSuccess = function (data) {
+  clearMessageDiv()
+  $('#userFacingPostMsg').append('Alright, you just updated your post.')
+  clearFormFields()
   console.log('post updated!\n', data)
-  // formResets()
-  // clearText()
-//   $('#edit-posts').hide()
-//   $('#delete-posts').hide()
-//   $('#userFacingMsg').append('Noted!')
-}
-//
-const deletePostsSuccess = function (data) {
-//   $('#edit-posts').hide()
-//   $('#delete-posts').hide()
-//   clearMessageDiv()
-//   $('#userFacingMsg').append('Noted!')
 }
 
-const error = function () {
+const deletePostsSuccess = function () {
   clearMessageDiv()
-  $('#userFacingMsg').append('Error! Try again.')
+  $('#userFacingPostMsg').append('Done. You just deleted that post. Unfortunately if you want it back you will have to recreate it.')
   clearFormFields()
-  console.log('errored!')
+  console.log('Post destroyed; oh the humanity!')
+}
+
+// Post Error
+const postError = function () {
+  clearMessageDiv()
+  $('#userFacingPostMsg').append('Post related error!')
+  clearFormFields()
+  console.log('Post errored out!')
 }
 
 module.exports = {
@@ -117,9 +122,10 @@ module.exports = {
   signInSuccess,
   changePasswordSuccess,
   signOutSuccess,
+  authError,
   addPostsSuccess,
   getPostsSuccess,
   updatePostsSuccess,
   deletePostsSuccess,
-  error
+  postError
 }

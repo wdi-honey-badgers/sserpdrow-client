@@ -13,14 +13,14 @@ const onCreatePosts = function (event) {
   authApi.createPosts(data)
     .then(authUi.addPostsSuccess)
     // .then(onGetPosts)
-    .catch(authUi.error)
+    .catch(authUi.postError)
 }
 
 const onGetPosts = function () {
   event.preventDefault()
   authApi.getPosts()
     .then(authUi.getPostsSuccess)
-    .catch(authUi.error)
+    .catch(authUi.postError)
 }
 
 let thisId
@@ -35,7 +35,7 @@ let thisId
 //   console.log('Update post data is:\n', data)
 //   authApi.updatePosts(data)
 //     .then(authUi.updatePostsSuccess)
-//     .catch(authUi.error)
+//     .catch(authUi.postError)
 // }
 
 const autoFill = function (thisId) {
@@ -51,7 +51,7 @@ const onUpdatePosts = function (event) {
   const data = getFormFields(event.target)
   authApi.updatePosts(data)
     .then(authUi.updatePostsSuccess)
-    .catch(authUi.error)
+    .catch(authUi.postError)
 }
 
 const onDeleteButton = function () {
@@ -73,7 +73,7 @@ const onDeletePosts = function () {
   authApi.deletePosts(data)
     .then(authUi.deletePostsSuccess(data))
     .then(onGetPosts)
-    .catch(authUi.error)
+    .catch(authUi.postError)
 }
 
 module.exports = {
