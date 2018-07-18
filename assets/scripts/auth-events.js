@@ -11,7 +11,7 @@ const onSignUp = function (event) {
   console.log('Lt. Commander Data is ', data)
   authApi.signUp(data)
     .then(authUi.signUpSuccess)
-    .catch(authUi.error)
+    .catch(authUi.authError)
 }
 
 const onSignIn = function (event) {
@@ -21,7 +21,7 @@ const onSignIn = function (event) {
   console.log('Lt. Commander Data is ', data)
   authApi.signIn(data)
     .then(authUi.signInSuccess)
-    .catch(authUi.error)
+    .catch(authUi.authError)
 }
 
 const onChangePassword = function (event) {
@@ -31,7 +31,7 @@ const onChangePassword = function (event) {
   console.log('Lt. Commander Data is ', data)
   authApi.changePassword(data)
     .then(authUi.changePasswordSuccess)
-    .catch(authUi.error)
+    .catch(authUi.authError)
 }
 
 const onSignOut = function (event) {
@@ -39,7 +39,7 @@ const onSignOut = function (event) {
   console.log('Where do you think you are going bub -_-*')
   authApi.signOut()
     .then(authUi.signOutSuccess)
-    .catch(authUi.error)
+    .catch(authUi.authError)
 }
 
 module.exports = {

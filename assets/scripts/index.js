@@ -10,8 +10,6 @@ const events = require('./events.js')
 // require('./example')
 
 $(() => {
-  $('.visitors').show()
-  $('.users').hide()
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)
   $('#change-pw-form').on('submit', authEvents.onChangePassword)
