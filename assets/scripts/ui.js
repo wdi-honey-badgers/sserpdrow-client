@@ -96,14 +96,14 @@ const updatePostsSuccess = function (data) {
 //   $('#edit-posts').hide()
 //   $('#delete-posts').hide()
 //   $('#userFacingMsg').append('Noted!')
-// }
+}
 //
-// const deletePostsSuccess = function (data) {
+const deletePostsSuccess = function (data) {
 //   $('#edit-posts').hide()
 //   $('#delete-posts').hide()
 //   clearMessageDiv()
 //   $('#userFacingMsg').append('Noted!')
-// }
+}
 
 const error = function () {
   clearMessageDiv()

@@ -65,22 +65,18 @@
       <br>
       <div class="create-post">
         <h2> Create Post</h2>
-        <form>
-          <div class="form-check form-check-inline">
-            <input name="post[blog]" class="form-check-input" type="radio" id="website-radio" value="false">
-            <label class="form-check-label" for="website-radio">Website</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input name="post[blog]" class="form-check-input" type="radio" id="blog-radio" value="true">
-            <label class="form-check-label" for="blog-radio">Blog Post</label>
+        <form id="create-post">
+          <div class="form-group">
+            <label for="post-blog">Blog?</label>
+            <input type="text" name="post[blog]" class="form-control" id="post-blog" placeholder="true or false?">
           </div>
           <div class="form-group">
             <label for="post-title">Post Title</label>
-            <input name="post[title]" class="form-control" id="post-title" placeholder="Enter post title">
+            <input type="text" name="post[title]" class="form-control" id="post-title" placeholder="Enter post title">
           </div>
           <div class="form-group">
             <label for="post-content">Post Content</label>
-            <input name="post[content]" class="form-control" id="post-content" placeholder="Content goes here!">
+            <input type="text" name="post[content]" class="form-control" id="post-content" placeholder="Content goes here!">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -89,54 +85,26 @@
       <br>
       <div class="Update-post">
         <h2> Update Post</h2>
-        <form>
+        <form id="update-post">
           <div class="form-group">
-            <label for="post-title">ID</label>
-            <input class="form-control" id="post-id" placeholder="Enter post id">
+            <label for="post-id">ID</label>
+            <input name="post[id]" type="text" class="form-control" id="post-id" placeholder="Enter post id">
           </div>
-          <div class="form-group form-check form-check-inline">
-            <input class="form-check-input" type="radio" id="website-radio-update" value="false" checked>
-            <label class="form-check-label" for="website-radio">Website</label>
-          </div>
-          <div class="form-group form-check form-check-inline">
-            <input class="form-check-input" type="radio" id="blog-radio-update" value="true">
-            <label class="form-check-label" for="blog-radio">Blog Post</label>
+          <div class="form-group">
+            <label for="post-blog">Blog?</label>
+            <input name="post[blog]" type="text" class="form-control" id="post-blog-update" placeholder="true or false?">
           </div>
           <div class="form-group">
             <label for="post-title">Post Title</label>
-            <input class="form-control" id="post-title-update" placeholder="Enter post title">
+            <input name="post[title]" type="text" class="form-control" id="post-title-update" placeholder="Enter post title">
           </div>
           <div class="form-group">
             <label for="post-content">Post Content</label>
-            <input class="form-control" id="post-content-update" placeholder="Content goes here!">
+            <input name="post[content]" type="text" class="form-control" id="post-content-update" placeholder="Content goes here!">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
-
-  <br>
-  <div class="update-post">
-    <h2> Update Post</h2>
-    <form id="update-post">
-      <div class="form-group">
-        <label for="post-id">ID</label>
-        <input type="text" name="post[id]" class="form-control" id="post-id" placeholder="id">
-      </div>
-      <div class="form-group">
-        <label for="post-blog-update">Blog?</label>
-        <input type="text" name="post[blog]" class="form-control" id="post-blog-update" placeholder="true or false?">
-      </div>
-      <div class="form-group">
-        <label for="post-title-update">Post Title</label>
-        <input type="text" name="post[title]" class="form-control" id="post-title-update" placeholder="Enter post title">
-      </div>
-      <div class="form-group">
-        <label for="post-content-update">Post Content</label>
-        <input type="text" name="post[content]" class="form-control" id="post-content-update" placeholder="Content goes here!">
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
 
   <div class="pages">
     Webpages links get populated here.
@@ -148,8 +116,8 @@
   <div class="posts">
     Blog posts get populated here.
     <!--  id shpould be populated by handlebars to be unique  -->
-    <button class="user" id="update">Update</button>
-    <button class="user" id="delete">Delete</button>
+    <button class="user" id="blog-update">Update</button>
+    <button class="user" id="blog-delete">Delete</button>
   </div>
 </body>
 
