@@ -18,4 +18,5 @@ $(() => {
   $('body').on('submit', '#delete-posts', events.onDeletePosts)
   $('#create-post').on('submit', events.onCreatePosts)
   $('#update-post').on('submit', events.onUpdatePosts)
+  $('#get-posts').on('click', events.onGetPosts)
 })

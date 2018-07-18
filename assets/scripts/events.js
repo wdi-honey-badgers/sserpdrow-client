@@ -18,6 +18,7 @@ const onCreatePosts = function (event) {
 
 const onGetPosts = function () {
   event.preventDefault()
+  console.log('onGetPosts function fired')
   authApi.getPosts()
     .then(authUi.getPostsSuccess)
     .catch(authUi.postError)
