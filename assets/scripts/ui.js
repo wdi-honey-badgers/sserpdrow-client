@@ -1,110 +1,113 @@
 'use strict'
 
 const store = require('./store')
-// const showCookiesTemplate = require('./templates/baker-posts.handlebars')
 
-let signedIn = false
+// Assistant Functions
+const clearMessageDiv = function () {
+  $('#userFacingMsg').html('')
+}
 
+// The terms "external" and "internal" are references to visitor view vs user signed-in view. Someone who is not signed in will see the "external" view state, where as user who are signed-in will see the "internal" view state.
+const revealChangePassSignOut = function () {
+  const authInternal = document.getElementById('authInternal')
+  authInternal.classList.remove('hidden')
+}
+
+const revealSignUpSignIn = function () {
+  const userAuthExternal = document.getElementById('authExternal')
+  userAuthExternal.classList.remove('hidden')
+}
+
+const hideChangePassSignOut = function () {
+  const authInternal = document.getElementById('authInternal')
+  authInternal.classList.add('hidden')
+}
+
+const hideSignUpSignIn = function () {
+  const authExternal = document.getElementById('authExternal')
+  authExternal.classList.add('hidden')
+}
+
+const clearFormFields = function () {
+  document.getElementById('sign-up-form').reset()
+  document.getElementById('sign-in-form').reset()
+  document.getElementById('change-pw-form').reset()
+}
+
+// Success & Error Functions
 const signUpSuccess = function (signUpSuccess) {
-  console.log('sing up success')
-  formResets()
-  // clearText()
-  $('#info').append('You now have an account. Please sign in.')
+  clearMessageDiv()
+  $('#userFacingMsg').append('You now have an account. Please sign in.')
+  clearFormFields()
+  console.log('sign up success')
 }
 
 const signInSuccess = function (data) {
-  console.log('log in success')
+  clearMessageDiv()
   store.user = data.user
-  formResets()
-  // clearText()
-  signedIn = true
-  // $('.pre-sign-in').hide()
-  // $('.signed-in').show()
+  $('#userFacingMsg').append('You have signed in.')
+  clearFormFields()
+  revealChangePassSignOut()
+  hideSignUpSignIn()
+  console.log('log in success')
 }
 
 const changePasswordSuccess = function (changePasswordSuccess) {
+  clearMessageDiv()
+  $('#userFacingMsg').append('Password changed, now dont forget it!')
+  clearFormFields()
   console.log('change password success')
-  formResets()
-  // clearText()
-  // $('#info').append('Password changed.')
 }
 
 const signOutSuccess = function (signOutSuccess) {
+  clearMessageDiv()
+  $('#userFacingMsg').append('Bye. Come again!')
+  clearFormFields()
+  hideChangePassSignOut()
+  revealSignUpSignIn()
+  delete store.user
   console.log('successfully left me')
-  formResets()
-  // clearText()
-  signedIn = false
-  // $('#info').append('Bye. Come again!')
-  // $('.signed-in').hide()
-  // $('.pre-sign-in').show()
 }
 
-const addPostsSuccess = function (data) {
-  formResets()
-  // clearText()
-//   $('#info').append('Noted!')
-}
-
-const getPostsSuccess = (data) => {
-//   postTable(data)
-  formResets()
-  // clearText()
-  store.post = data.posts
-}
-
-// const postTable = function (data) {
-//   $('td').remove()
-//   const showPostsHtml = showPostsTemplate({ posts: data.posts })
-//   $('thead').append(showPostsHtml)
+// const addPostsSuccess = function (data) {
+//   clearMessageDiv()
+//   $('#userFacingMsg').append('Noted!')
 // }
 //
-const editPostsSuccess = function (data) {
-  formResets()
-  // clearText()
+// const getPostsSuccess = (data) => {
+//   clearMessageDiv()
+//   store.post = data.posts
+// }
+//
+// const editPostsSuccess = function (data) {
+//   clearMessageDiv()
 //   $('#edit-posts').hide()
 //   $('#delete-posts').hide()
-//   $('#info').append('Noted!')
-}
-
-const deletePostsSuccess = function (data) {
+//   $('#userFacingMsg').append('Noted!')
+// }
+//
+// const deletePostsSuccess = function (data) {
 //   $('#edit-posts').hide()
 //   $('#delete-posts').hide()
-  formResets()
-  // clearText()
-//   $('#info').append('Noted!')
-}
+//   clearMessageDiv()
+//   $('#userFacingMsg').append('Noted!')
+// }
 
 const error = function () {
+  clearMessageDiv()
+  $('#userFacingMsg').append('Error! Try again.')
+  clearFormFields()
   console.log('errored!')
-  // clearText()
-  formResets()
-  // $('#info').append('Error! Try again.')
 }
-
-const formResets = function () {
-  if (signedIn === true) {
-    $('#edit-posts-form').reset()
-    $('#change-pw-form').reset()
-    $('#add-post-form').reset()
-    $('#delete-posts-form').reset()
-  } else {
-    $('#sign-in-form').reset()
-    $('#sign-up-form').reset()
-  }
-}
-
-// const clearText = function () {
-//   document.getElementById('info').textContent = ''
-// }
 
 module.exports = {
   signUpSuccess,
   signInSuccess,
   changePasswordSuccess,
   signOutSuccess,
-  addPostsSuccess,
-  getPostsSuccess,
-  editPostsSuccess,
-  deletePostsSuccess,
+  // addPostsSuccess,
+  // getPostsSuccess,
+  // editPostsSuccess,
+  // deletePostsSuccess,
   error
 }
