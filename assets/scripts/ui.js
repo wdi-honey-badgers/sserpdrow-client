@@ -101,7 +101,6 @@ const updatePostsSuccess = function (data) {
 //
 const deletePostsSuccess = function (data) {
   console.log('post successfully deleted')
-
 }
 
 const error = function () {
