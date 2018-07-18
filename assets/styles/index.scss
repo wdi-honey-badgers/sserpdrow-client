@@ -9,10 +9,15 @@ a:hover {
 body {
   background-color: #3d3d3d;
   color: #ccc;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 button {
   background-color: #3d3d3d;
+  border-color: #ccc;
+  border-radius: 4px;
+  border-width: 1px;
   color: #ccc;
 }
 
@@ -21,14 +26,18 @@ h1 {
   text-align: left;
 }
 
-h2 {
-  padding-right: 7%;
-  text-align: right;
-}
-
 input {
   background-color: #3d3d3d;
+  border-color: #ccc;
+  border-radius: 4px;
+  border-width: 1px;
   color: #ccc;
+}
+
+textarea {
+  background-color: #3d3d3d;
+  color: #ccc;
+  width: 90%;
 }
 
 ul {
@@ -39,4 +48,9 @@ ul {
 
 .sidebar {
   border-right: solid, 2px, #ccc;
+}
+
+#subtitle {
+  padding-right: 7%;
+  text-align: right;
 }
