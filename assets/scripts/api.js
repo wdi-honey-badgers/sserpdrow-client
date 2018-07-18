@@ -63,7 +63,7 @@ const getPosts = function () {
   })
 }
 
-const editPosts = function (data) {
+const updatePosts = function (data) {
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/posts/' + data.post.id,
@@ -91,6 +91,6 @@ module.exports = {
   signOut,
   createPosts,
   getPosts,
-  editPosts,
+  updatePosts,
   deletePosts
 }

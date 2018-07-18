@@ -89,7 +89,8 @@ const getPostsSuccess = (data) => {
 //   $('thead').append(showPostsHtml)
 // }
 //
-const editPostsSuccess = function (data) {
+const updatePostsSuccess = function (data) {
+  console.log('post updated!\n', data)
   // formResets()
   // clearText()
 //   $('#edit-posts').hide()
@@ -116,9 +117,9 @@ module.exports = {
   signInSuccess,
   changePasswordSuccess,
   signOutSuccess,
-  // addPostsSuccess,
-  // getPostsSuccess,
-  // editPostsSuccess,
-  // deletePostsSuccess,
+  addPostsSuccess,
+  getPostsSuccess,
+  updatePostsSuccess,
+  deletePostsSuccess,
   error
 }

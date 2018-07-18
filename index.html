@@ -114,17 +114,43 @@
         </form>
       </div>
 
-      <div class="pages">
-        Webpages links get populated here.
-        <!--  id should be populated by handlebars to be unique  -->
-        <button class="user" id="update">Update</button>
-        <button class="user" id="delete">Delete</button>
+  <br>
+  <div class="update-post">
+    <h2> Update Post</h2>
+    <form id="update-post">
+      <div class="form-group">
+        <label for="post-id">ID</label>
+        <input type="text" name="post[id]" class="form-control" id="post-id" placeholder="id">
       </div>
-      <div class="posts">
-        Blog posts get populated here.
-        <!--  id should be populated by handlebars to be unique  -->
-        <button class="user" id="update">Update</button>
-        <button class="user" id="delete">Delete</button>
+      <div class="form-group">
+        <label for="post-blog-update">Blog?</label>
+        <input type="text" name="post[blog]" class="form-control" id="post-blog-update" placeholder="true or false?">
       </div>
-    </body>
+      <div class="form-group">
+        <label for="post-title-update">Post Title</label>
+        <input type="text" name="post[title]" class="form-control" id="post-title-update" placeholder="Enter post title">
+      </div>
+      <div class="form-group">
+        <label for="post-content-update">Post Content</label>
+        <input type="text" name="post[content]" class="form-control" id="post-content-update" placeholder="Content goes here!">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <div class="pages">
+    Webpages links get populated here.
+    <!--  id shpould be populated by handlebars to be unique  -->
+    <button class="user" id="update">Update</button>
+    <button class="user" id="delete">Delete</button>
+  </div>
+
+  <div class="posts">
+    Blog posts get populated here.
+    <!--  id shpould be populated by handlebars to be unique  -->
+    <button class="user" id="update">Update</button>
+    <button class="user" id="delete">Delete</button>
+  </div>
+</body>
+
 </html>
