@@ -100,10 +100,8 @@ const updatePostsSuccess = function (data) {
 }
 //
 const deletePostsSuccess = function (data) {
-//   $('#edit-posts').hide()
-//   $('#delete-posts').hide()
-//   clearMessageDiv()
-//   $('#userFacingMsg').append('Noted!')
+  console.log('post successfully deleted')
+
 }
 
 const error = function () {

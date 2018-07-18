@@ -77,7 +77,7 @@ const updatePosts = function (data) {
 const deletePosts = function (data) {
   return $.ajax({
     method: 'DELETE',
-    url: config.apiUrl + '/posts/' + data.post.id,
+    url: config.apiUrl + '/posts/' + data,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
