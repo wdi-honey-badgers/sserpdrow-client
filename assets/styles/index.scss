@@ -1,2 +1,42 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+a:hover {
+  background-color: #34133e;
+}
+
+body {
+  background-color: #3d3d3d;
+  color: #ccc;
+}
+
+button {
+  background-color: #3d3d3d;
+  color: #ccc;
+}
+
+h1 {
+  padding-left: 7%;
+  text-align: left;
+}
+
+h2 {
+  padding-right: 7%;
+  text-align: right;
+}
+
+input {
+  background-color: #3d3d3d;
+  color: #ccc;
+}
+
+ul {
+  list-style-type: none;
+  margin: 1%;
+  padding: 1%;
+}
+
+.sidebar {
+  border-right: solid, 2px, #ccc;
+}
