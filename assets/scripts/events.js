@@ -5,13 +5,14 @@ const authUi = require('./ui.js')
 const store = require('./store.js')
 const getFormFields = require('../../lib/get-form-fields')
 
-const onAddPosts = function (event) {
-  console.log('add posts button')
+const onCreatePosts = function (event) {
+  console.log('Create posts button')
   event.preventDefault()
   const data = getFormFields(event.target)
-  authApi.addPosts(data)
+  console.log('Create post data is:\n', data)
+  authApi.createPosts(data)
     .then(authUi.addPostsSuccess)
-    .then(onGetPosts)
+    // .then(onGetPosts)
     .catch(authUi.error)
 }
 
@@ -73,7 +74,7 @@ const onDeletePosts = function () {
 }
 
 module.exports = {
-  onAddPosts,
+  onCreatePosts,
   onGetPosts,
   onEditPosts,
   onEditButton,

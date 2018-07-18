@@ -69,18 +69,29 @@ const signOutSuccess = function (signOutSuccess) {
   console.log('successfully left me')
 }
 
-// const addPostsSuccess = function (data) {
-//   clearMessageDiv()
-//   $('#userFacingMsg').append('Noted!')
+const addPostsSuccess = function (data) {
+  console.log('Post successfully created!\n', data)
+  // formResets()
+  // clearText()
+//   $('#info').append('Noted!')
+}
+
+const getPostsSuccess = (data) => {
+//   postTable(data)
+  // formResets()
+  // clearText()
+  store.post = data.posts
+}
+
+// const postTable = function (data) {
+//   $('td').remove()
+//   const showPostsHtml = showPostsTemplate({ posts: data.posts })
+//   $('thead').append(showPostsHtml)
 // }
 //
-// const getPostsSuccess = (data) => {
-//   clearMessageDiv()
-//   store.post = data.posts
-// }
-//
-// const editPostsSuccess = function (data) {
-//   clearMessageDiv()
+const editPostsSuccess = function (data) {
+  // formResets()
+  // clearText()
 //   $('#edit-posts').hide()
 //   $('#delete-posts').hide()
 //   $('#userFacingMsg').append('Noted!')
