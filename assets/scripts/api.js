@@ -44,9 +44,8 @@ const signOut = function () {
     }
   })
 }
-
-// Posts
-const addPosts = function (data) {
+// Posts CRUD actions
+const createPosts = function (data) {
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/posts',
@@ -64,7 +63,7 @@ const getPosts = function () {
   })
 }
 
-const editPosts = function (data) {
+const updatePosts = function (data) {
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/posts/' + data.post.id,
@@ -90,8 +89,8 @@ module.exports = {
   signIn,
   changePassword,
   signOut,
-  addPosts,
+  createPosts,
   getPosts,
-  editPosts,
+  updatePosts,
   deletePosts
 }

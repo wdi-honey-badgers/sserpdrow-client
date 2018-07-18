@@ -5,13 +5,14 @@ const authUi = require('./ui.js')
 const store = require('./store.js')
 const getFormFields = require('../../lib/get-form-fields')
 
-const onAddPosts = function (event) {
-  console.log('add posts button')
+const onCreatePosts = function (event) {
+  console.log('Create posts button')
   event.preventDefault()
   const data = getFormFields(event.target)
-  authApi.addPosts(data)
+  console.log('Create post data is:\n', data)
+  authApi.createPosts(data)
     .then(authUi.addPostsSuccess)
-    .then(onGetPosts)
+    // .then(onGetPosts)
     .catch(authUi.error)
 }
 
@@ -24,14 +25,18 @@ const onGetPosts = function () {
 
 let thisId
 
-const onEditButton = function () {
-  console.log('edit posts button')
-  event.preventDefault()
-  $('#edit-posts').show()
-  thisId = this.id
-  store.thisPost = thisId
-  document.getElementById('autofilled').value = thisId
-}
+// const onUpdatePosts = function () {
+//   console.log('Update posts submit')
+//   event.preventDefault()
+//   // thisId = this.id
+//   // store.thisPost = thisId
+//   // document.getElementById('autofilled').value = thisId
+//   const data = getFormFields(event.target)
+//   console.log('Update post data is:\n', data)
+//   authApi.updatePosts(data)
+//     .then(authUi.updatePostsSuccess)
+//     .catch(authUi.error)
+// }
 
 const autoFill = function (thisId) {
   document.getElementById('autofill-id').value = thisId
@@ -40,13 +45,12 @@ const autoFill = function (thisId) {
   // document.getElementById('autofill-blog').value = thisBlog
 }
 
-const onEditPosts = function (thisId) {
-  console.log('edit posts form button')
+const onUpdatePosts = function (event) {
+  console.log('update posts form button')
   event.preventDefault()
   const data = getFormFields(event.target)
-  authApi.editPosts(data)
-    .then(authUi.editPostsSuccess)
-    .then(onGetPosts)
+  authApi.updatePosts(data)
+    .then(authUi.updatePostsSuccess)
     .catch(authUi.error)
 }
 
@@ -73,10 +77,10 @@ const onDeletePosts = function () {
 }
 
 module.exports = {
-  onAddPosts,
+  onCreatePosts,
   onGetPosts,
-  onEditPosts,
-  onEditButton,
+  onUpdatePosts,
+  // onEditButton,
   onDeletePosts,
   onDeleteButton
 }
