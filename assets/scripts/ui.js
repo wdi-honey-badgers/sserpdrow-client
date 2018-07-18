@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./store')
+const showPostsTemplate = require('./templates/posts-view.handlebars')
 
 // Assistant Functions
 const clearMessageDiv = function () {
@@ -77,10 +78,10 @@ const addPostsSuccess = function (data) {
 }
 
 const getPostsSuccess = (data) => {
-//   postTable(data)
-  // formResets()
-  // clearText()
-  store.post = data.posts
+  console.log('got all posts!\n', data)
+  const showPostsHtml = showPostsTemplate({object: data})
+  $('.view-posts').empty()
+  $('.view-posts').append(showPostsHtml)
 }
 
 // const postTable = function (data) {
