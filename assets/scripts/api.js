@@ -43,56 +43,53 @@ const signOut = function () {
     }
   })
 }
-//
-// const addPosts = function (data) {
-//   return $.ajax({
-//     method: 'POST',
-//     url: config.apiUrl + '/posts',
-//     data: data,
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
-//
-// const getPosts = function () {
-//   return $.ajax({
-//     method: 'GET',
-//     url: config.apiUrl + '/posts',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
-//
-// const editPosts = function (data) {
-//   return $.ajax({
-//     method: 'PATCH',
-//     url: config.apiUrl + '/posts/' + data.post.id,
-//     data: data,
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
-//
-// const deletePosts = function (data) {
-//   return $.ajax({
-//     method: 'DELETE',
-//     url: config.apiUrl + '/posts/' + data.post.id,
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
+
+const addPosts = function (data) {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/posts',
+    data: data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const getPosts = function () {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/posts'
+  })
+}
+
+const editPosts = function (data) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/posts/' + data.post.id,
+    data: data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const deletePosts = function (data) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/posts/' + data.post.id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
-  // addPosts,
-  // getPosts,
-  // editPosts,
-  // deletePosts
+  signOut,
+  addPosts,
+  getPosts,
+  editPosts,
+  deletePosts
 }
