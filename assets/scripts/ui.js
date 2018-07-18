@@ -106,12 +106,9 @@ const updatePostsSuccess = function (data) {
   clearFormFields()
   console.log('post updated!\n', data)
 }
-
-const deletePostsSuccess = function () {
-  clearMessageDiv()
-  $('#userFacingPostMsg').append('Done. You just deleted that post. Unfortunately if you want it back you will have to recreate it.')
-  clearFormFields()
-  console.log('Post destroyed; oh the humanity!')
+//
+const deletePostsSuccess = function (data) {
+  console.log('post successfully deleted')
 }
 
 // Post Error

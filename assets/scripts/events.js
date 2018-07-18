@@ -12,12 +12,11 @@ const onCreatePosts = function (event) {
   console.log('Create post data is:\n', data)
   authApi.createPosts(data)
     .then(authUi.addPostsSuccess)
-    // .then(onGetPosts)
+    .then(onGetPosts)
     .catch(authUi.postError)
 }
 
 const onGetPosts = function () {
-  event.preventDefault()
   console.log('onGetPosts function fired')
   authApi.getPosts()
     .then(authUi.getPostsSuccess)
@@ -52,6 +51,7 @@ const onUpdatePosts = function (event) {
   const data = getFormFields(event.target)
   authApi.updatePosts(data)
     .then(authUi.updatePostsSuccess)
+    .then(onGetPosts)
     .catch(authUi.postError)
 }
 
@@ -70,7 +70,8 @@ const onDeleteButton = function () {
 const onDeletePosts = function () {
   console.log('delete posts form button')
   event.preventDefault()
-  const data = getFormFields(event.target)
+  const data = $(event.target).data('id')
+  console.log('id is:\n', data)
   authApi.deletePosts(data)
     .then(authUi.deletePostsSuccess(data))
     .then(onGetPosts)
