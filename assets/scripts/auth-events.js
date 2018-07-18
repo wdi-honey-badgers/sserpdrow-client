@@ -1,9 +1,8 @@
 'use strict'
 
+const getFormFields = require('../../lib/get-form-fields')
 const authApi = require('./api.js')
 const authUi = require('./ui.js')
-// const events = require('./events.js')
-const getFormFields = require('../../lib/get-form-fields')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -22,7 +21,6 @@ const onSignIn = function (event) {
   console.log('Lt. Commander Data is ', data)
   authApi.signIn(data)
     .then(authUi.signInSuccess)
-    // .then(events.onGetPosts)
     .catch(authUi.error)
 }
 
@@ -38,7 +36,7 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  console.log("nooooo don't leave meeeee :'(")
+  console.log('Where do you think you are going bub -_-*')
   authApi.signOut()
     .then(authUi.signOutSuccess)
     .catch(authUi.error)

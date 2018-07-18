@@ -3,6 +3,7 @@
 const config = require('./config.js')
 const store = require('./store')
 
+// Auth
 const signUp = function (data) {
   console.log('api signUp')
   return $.ajax({
@@ -44,6 +45,7 @@ const signOut = function () {
   })
 }
 
+// Posts
 const addPosts = function (data) {
   return $.ajax({
     method: 'POST',
