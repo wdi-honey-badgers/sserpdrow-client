@@ -14,6 +14,38 @@
           <button class="delete-button" data-id={{post._id}} type="button">Delete</button>
           <!-- {{/if}} -->
         </div>
+
+        <div id="update-post-{{post._id}}" class="post-modal-handlebars update-post modal update-post-modal-lg-{{post._id}}" tabindex="-1" role="dialog" aria-labelledby="updatepost" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">&#9734; Update Your post! &#9734;</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <!-- update posts form -->
+            <form class="update-post-form" data-id={{post._id}}>
+              <div class="form-group">
+                <label for="post-blog">Blog?</label><br>
+                <input name="post[blog]" type="radio" id="post-blog-update-{{post._id}}" value="true">True
+                <input name="post[blog]" type="radio" id="post-page-update-{{post._id}}" value="false">False
+              </div>
+              <div class="form-group">
+                <label for="post-title-update-{{post._id}}">Post Title</label><br>
+                <input name="post[title]" type="text" id="post-title-update-{{post._id}}" placeholder="Enter post title">
+              </div>
+              <div class="form-group">
+                <label for="post-content">Post Content</label><br>
+                <textarea name="post[content]" id="post-content-update-{{post._id}}" placeholder="Content goes here!"></textarea>
+              </div>
+              <button class="update-post" data-id={{post._id}} type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
       {{/each}}
     {{/each}}
 </div>
