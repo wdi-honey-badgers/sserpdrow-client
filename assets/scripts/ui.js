@@ -35,7 +35,6 @@ const clearFormFields = function () {
   document.getElementById('sign-in-form').reset()
   document.getElementById('change-pw-form').reset()
   document.getElementById('create-post').reset()
-  document.getElementById('update-post').reset()
 }
 
 // Auth Success
@@ -101,10 +100,11 @@ const getPostsSuccess = (data) => {
 }
 
 const updatePostsSuccess = function (data) {
+  console.log('post updated!\n', data)
+  $('.update-post').modal('hide')
   clearMessageDiv()
   $('#userFacingPostMsg').append('Alright, you just updated your post.')
   clearFormFields()
-  console.log('post updated!\n', data)
 }
 //
 const deletePostsSuccess = function (data) {
