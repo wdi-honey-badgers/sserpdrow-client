@@ -1,64 +1,84 @@
-<div class="container">
+<div class="row cards-section">
   {{#each object as |posts|}}
     {{#each posts as |post|}}
-      <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-        {{#if post.blog}}
-          Blog
-        {{else}}
-          Website
-        {{/if}}
-        <div>{{post.title}}</div>
-        <div>{{post.content}}</div>
-        <button class="update-button {{post.owner}}" data-id={{post._id}} type="button" data-toggle="modal" data-target=".update-post-modal-lg-{{post._id}}">Update</button>
-        <button class="delete-button {{post.owner}}" data-id={{post._id}} type="button" data-toggle="modal" data-target=".delete-post-modal-{{post._id}}">Delete</button>
+      <!-- Card -->
+      <div class="col-xs-6 col-md-3 card">
+        <div class="card-container">
+          {{#if post.blog}}
+            <sub><b>Blog</b></sub>
+          {{else}}
+            <sub><b>Website</b></sub>
+          {{/if}}
+          <div>
+            <h3>{{post.title}}</h3>
+          </div>
+          <div>
+            <p>{{post.content}}</p>
+          </div>
+          <div class="btn-group card-buttons" role="group">
+            <button class="btn btn-primary update-button {{post.owner}}" data-id={{post._id}} type="button" data-toggle="modal" data-target=".update-post-modal-lg-{{post._id}}">Update</button>
+            <button class="btn btn-danger delete-button {{post.owner}}" data-id={{post._id}} type="button" data-toggle="modal" data-target=".delete-post-modal-{{post._id}}">Delete</button>
+          </div>
+        </div>
       </div>
 
-      <div id="update-post-{{post._id}}" class="post-modal-handlebars update-post modal update-post-modal-lg-{{post._id}}" tabindex="-1" role="dialog" aria-labelledby="updatepost" aria-hidden="true">
+      <!-- Update Modal -->
+      <div class="post-modal-handlebars update-post modal update-post-modal-lg-{{post._id}}" id="update-post-{{post._id}}" tabindex="-1" role="dialog" aria-labelledby="updatepost" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h3 class="modal-title"> Update Your post! </h3>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
+              <h3 class="modal-title">Update Your post!</h3>
             </div>
             <div class="modal-body">
-              <!-- update posts form -->
               <form class="update-post-form" data-id={{post._id}}>
                 <div class="form-group">
-                  <label for="post-blog">Blog?</label><br>
-                  <input name="post[blog]" type="radio" id="post-blog-update-{{post._id}}" value="true">True
-                  <input name="post[blog]" type="radio" id="post-page-update-{{post._id}}" value="false">False
+                  {{#if post.blog}}
+                    <label class="radio-inline">
+                      <input type="radio" name="post[blog]" id="post-blog-update-{{post._id}}" value="true" checked>Blog
+                    </label>
+                    <label class="radio-inline">
+                      <input name="post[blog]" type="radio" id="post-page-update-{{post._id}}" value="false">Web Page
+                    </label>
+                  {{else}}
+                    <label class="radio-inline">
+                      <input name="post[blog]" type="radio" id="post-blog-update-{{post._id}}" value="true">Blog
+                    </label>
+                    <label class="radio-inline">
+                      <input name="post[blog]" type="radio" id="post-page-update-{{post._id}}" value="false" checked>Web Page
+                    </label>
+                  {{/if}}
                 </div>
                 <div class="form-group">
-                  <label for="post-title-update-{{post._id}}">Post Title</label><br>
-                  <input name="post[title]" type="text" id="post-title-update-{{post._id}}" placeholder="Enter post title">
+                  <label for="post-title-update-{{post._id}}">Post Title</label>
+                  <input type="text" class="form-control" id="post-title-update-{{post._id}}" name="post[title]" placeholder="Enter post title" value="{{post.title}}">
                 </div>
                 <div class="form-group">
-                  <label for="post-content">Post Content</label><br>
-                  <textarea name="post[content]" id="post-content-update-{{post._id}}" placeholder="Content goes here!"></textarea>
+                  <label for="post-content-update-{{post._id}}">Post Content</label>
+                  <textarea type="text" class="form-control" id="post-content-update-{{post._id}}" name="post[content]" placeholder="Content goes here!" rows="3">{{post.content}}</textarea>
                 </div>
-                <button class="update-post" data-id={{post._id}} type="submit">Submit</button>
+                <button class="btn btn-primary update-post" data-id={{post._id}} type="submit">Submit</button>
               </form>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- delete confirmation modal -->
+      <!-- Delete Modal -->
       <div id="delete-post-{{post._id}}" class="post-modal-handlebars post-modal delete-post modal delete-post-modal-{{post._id}}" tabindex="-1" role="dialog" aria-labelledby="deletepost" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h3 class="modal-title"> Are you sure you want to Delete?! </h3>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
+              <h3 class="modal-title"> Are you sure you want to Delete?! </h3>
             </div>
             <div class="modal-body">
               <form data-id={{post._id}} class="destroy-post-form">
-                <!-- delete button -->
-                <button type="submit" class="delete-btn btn">Yes, delete</button>
+                <button type="submit" class="delete-btn btn btn-danger">Yes, delete</button>
               </form>
             </div>
           </div>
