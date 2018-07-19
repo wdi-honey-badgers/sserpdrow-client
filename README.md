@@ -69,6 +69,10 @@ https://imgur.com/ut4CfyV
 ## List of unsolved problems
 
 ## Story about development planning/obstacles:
-Captains log, Star date 201807171632
-Raining. Dreary. Our voyage began in class room 6. We first created Wireframes, ERD's, User Stories, and a Scrum board. Had a 1 on 1 with Mike - He recommended we actually shrink our ERD to combine Users with Companies (make them the same entity). And the Earth fell below as we spread our wings in flight. Our "Posts" resource (which doubles as web pages and Blog posts for the time being) was created by Dan, our user Authentication was created by Catherine, merged and deployed all of these things, connected to the front end client side view, and tested their functionality via curl scripts and HTML forms.
+Captains log, Star date 201807171632.
+Raining. Dreary. Our voyage began in class room 6. We first created Wireframes, ERD's, User Stories, and a Scrum board. Had a 3 on 1 with Mike - He recommended we actually shrink our ERD to combine Users with Companies (make them the same entity). And the Earth fell below as we spread our wings in flight. Our "Posts" resource (which doubles as web pages and Blog posts for the time being) was created by Dan, our user Authentication was created by Catherine, merged and deployed all of these things, connected to the front end client side view, and tested their functionality via curl scripts and HTML forms.
 - The Honey Badger Sean
+
+Captain's log, supplemntal.
+Sunny and pleasant today, we continued coding along in classroom 6. We encountered the Merge Conflict today and together we strategized to defeat them. We also discovered a few bugs, like the impressive-sounding Unprocessable Entity, but we have dealt with them before, so they didn't stall us for long. We are now able to successfully create, show, update, and delete posts. A user can only update and delete their own posts, as is appropriate. We dug into styling today, utilizing CSS, Bootstrap, and Handlebars. Tomorrow we embark on the final day of this mission.
+- Honey Badger Catherine
