@@ -16,8 +16,8 @@
             <p>{{post.content}}</p>
           </div>
           <div class="btn-group card-buttons" role="group">
-            <button class="btn btn-primary update-button" data-id={{post._id}} type="button" data-toggle="modal" data-target=".update-post-modal-lg-{{post._id}}">Update</button>
-            <button class="btn btn-danger delete-button" data-id={{post._id}} type="button" data-toggle="modal" data-target=".delete-post-modal-{{post._id}}">Delete</button>
+            <button class="btn btn-primary update-button {{post.owner}}" data-id={{post._id}} type="button" data-toggle="modal" data-target=".update-post-modal-lg-{{post._id}}">Update</button>
+            <button class="btn btn-danger delete-button {{post.owner}}" data-id={{post._id}} type="button" data-toggle="modal" data-target=".delete-post-modal-{{post._id}}">Delete</button>
           </div>
         </div>
       </div>
