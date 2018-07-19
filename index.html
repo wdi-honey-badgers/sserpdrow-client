@@ -12,75 +12,130 @@
 </head>
 
 <body>
-  <h1>Sserp, Drow?</h1>
-  <h2 id='subtitle'>Not much. Sserp with you?</h2>
-  <nav class="sidebar">
-    <ul class="user visitor">
-      <li>Organization 1 is a link</li>
-      <li>Organization 2 is a link</li>
-      <li>Organization 3 is a link</li>
-      <li>Organization 4 is a link</li>
-    </ul>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Sserpdrow</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse auth">
+        <!-- External User Auth -->
+        <ul class="nav navbar-nav navbar-right user-auth auth-external" id="authExternal">
+          <li class="dropdown" id="signUpSection">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Join <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <form class="navbar-form" id="sign-up-form">
+                  <!-- Sign Up Email Input -->
+                  <div class="form-group">
+                    <label for="signUpEmailInput">Email address</label>
+                    <input type="email" class="form-control" id="signUpEmailInput" name="credentials[email]" placeholder="Email" required>
+                  </div>
+                  <!-- Sign Up Password Input -->
+                  <div class="form-group">
+                    <label for="signUpPassword">Password</label>
+                    <input type="password" class="form-control" id="signUpPassword" name="credentials[password]" placeholder="Password" required>
+                  </div>
+                  <!-- Sign Up Confirm Password Input -->
+                  <div class="form-group">
+                    <label for="signUpPasswordConfirm">Confirm Password</label>
+                    <input type="password" class="form-control" id="signUpPasswordConfirm" name="credentials[password_confirmation]" placeholder="Confirm Password" required>
+                  </div>
+                  <!-- Sign Up Submit -->
+                  <button class="btn btn-default" type="submit">Sign Up</button>
+                </form>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown login-dropdown" id="signInSection">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <form class="navbar-form" id="sign-in-form">
+                  <div class="form-group">
+                    <!-- Sign In Email Input -->
+                    <label for="signInEmailInput">Email address</label>
+                    <input type="email" class="form-control" id="signInEmailInput" name="credentials[email]" placeholder="Email" required>
+                  </div>
+                  <div class="form-group">
+                    <!-- Sign In Password Input -->
+                    <label for="signInPassword">Password</label>
+                    <input type="password" class="form-control" id="signInPassword" name="credentials[password]" placeholder="Password" required>
+                  </div>
+                  <!-- Sign In Submit -->
+                  <button class="btn btn-default" type="submit">Sign In</button>
+                </form>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <!-- Internal User Auth -->
+        <ul class="nav navbar-nav navbar-right user-auth auth-internal hidden" id="authInternal">
+          <li class="dropdown join-dropdown" id="changePassSection">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Change Password <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <form class="navbar-form" id="change-pw-form">
+                  <div class="form-group">
+                    <!-- Change Password Old Input -->
+                    <label for="changePasswordOld">Old Password</label>
+                    <input type="password" class="form-control" id="changePasswordOld" name="passwords[old]" placeholder="Old Password" required>
+                  </div>
+                  <div class="form-group">
+                    <!-- Change Password New Input -->
+                    <label for="changePasswordNew">New Password</label>
+                    <input type="password" class="form-control" id="changePasswordNew" name="passwords[new]" placeholder="New Password" required>
+                  </div>
+                  <!-- Change Password Submit -->
+                  <button class="btn btn-default" type="submit">Change Password</button>
+                </form>
+              </li>
+            </ul>
+          </li>
+          <li id='sign-out'>
+            <button class="btn btn-default" id="signOutBtn" type="submit">Sign Out</button>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
   </nav>
-  <div id="userFacingAuthMsg"></div>
-  <div class="auth">
-    <ul class="auth-external" id="authExternal">
-      <li>
-        <form id='sign-in-form'>
-          <input name="credentials[email]" placeholder="email" type="text">
-          <input name="credentials[password]" placeholder="password" type="password">
-          <button type="submit">Log In</button>
-        </form>
-      </li>
-      <li>
-        <form id='sign-up-form'>
-          <input name="credentials[email]" placeholder="email" type="email">
-          <!-- <input name="credentials[screen_name]" placeholder="name" type="text"> -->
-          <input name="credentials[password]" placeholder="password" type="password">
-          <input name="credentials[password_confirmation]" placeholder="password again" type="password">
-          <button type="submit">Make an Account</button>
-        </form>
-      </li>
-    </ul>
-    <ul class="auth-internal hidden" id="authInternal">
-      <li>
-        <form id='change-pw-form'>
-          <input name="passwords[old]" placeholder="old password" type="password">
-          <input name="passwords[new]" placeholder="new password" type="password">
-          <button type="submit">Change Password</button>
-        </form>
-      </li>
-      <li id='sign-out'>
-        <button>Sign Out</button>
-      </li>
-    </ul>
-  </div>
+  <div class="wrapper container">
+    <div id="userFacingAuthMsg"></div>
+    <br>
+    <h1>Sserp, Drow?</h1>
+    <h2 id='subtitle'>Not much. Sserp with you?</h2>
+    <br>
+    <div id="userFacingPostMsg"></div>
+    <div class="create-post hidden" id="create-post-wrapper">
+      <h2>Create Post</h2>
+      <form id="create-post">
+        <div class="form-group">
+          <label for="post-blog">Blog?</label><br>
+          <input type="radio" name="post[blog]" id="post-blog" value="true">True
+          <input type="radio" name="post[blog]" id="post-page" value="false">False
+        </div>
+        <div class="form-group">
+          <label for="post-title">Post Title</label><br>
+          <input type="text" name="post[title]" id="post-title" placeholder="Enter post title">
+        </div>
+        <div class="form-group">
+          <label for="post-content">Post Content</label><br>
+          <textarea name="post[content]" id="post-content" placeholder="Content goes here!"></textarea>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <br>
+    <button id="get-posts" type="button" class="btn btn-primary btn-lg">Get All Posts</button>
 
-  <br>
-  <div id="userFacingPostMsg"></div>
-  <div class="create-post hidden" id="create-post-wrapper">
-    <h2>Create Post</h2>
-    <form id="create-post">
-      <div class="form-group">
-        <label for="post-blog">Blog?</label><br>
-        <input type="radio" name="post[blog]" id="post-blog" value="true">True
-        <input type="radio" name="post[blog]" id="post-page" value="false">False
-      </div>
-      <div class="form-group">
-        <label for="post-title">Post Title</label><br>
-        <input type="text" name="post[title]" id="post-title" placeholder="Enter post title">
-      </div>
-      <div class="form-group">
-        <label for="post-content">Post Content</label><br>
-        <textarea name="post[content]" id="post-content" placeholder="Content goes here!"></textarea>
-      </div>
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-  <br>
-  <button id="get-posts" type="button">Get All Posts</button>
-
-  <div class="view-posts container">
+    <div class="view-posts container">
   </div>
 </body>
 
