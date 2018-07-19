@@ -29,7 +29,7 @@ const onUpdatePosts = function (event) {
     .catch(ui.postError)
 }
 
-const onDeletePosts = function () {
+const onDeletePosts = function (event) {
   event.preventDefault()
   const data = $(event.target).data('id')
   api.deletePosts(data)
