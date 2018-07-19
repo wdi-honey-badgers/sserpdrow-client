@@ -52,25 +52,21 @@ const signUpSuccess = function () {
   clearMessageDiv()
   $('#userFacingAuthMsg').append('You now have an account. Please sign in.')
   clearFormFields()
-  // console.log('sign up success')
 }
 
 const signInSuccess = function (data) {
   clearMessageDiv()
   store.user = data.user
-  $('#userFacingAuthMsg').append('You have signed in.')
   clearFormFields()
   revealChangePassSignOut()
   revealCreatePost()
   hideSignUpSignIn()
-  // console.log('log in success')
 }
 
 const changePasswordSuccess = function () {
   clearMessageDiv()
   $('#userFacingAuthMsg').append('Password changed, now dont forget it!')
   clearFormFields()
-  // console.log('change password success')
 }
 
 const signOutSuccess = function () {
@@ -81,55 +77,44 @@ const signOutSuccess = function () {
   hideCreatePost()
   revealSignUpSignIn()
   delete store.user
-  // console.log('successfully left me')
 }
 
-// Auth Error
 const authError = function () {
   clearMessageDiv()
   $('#userFacingAuthMsg').append('Auth related error!')
   clearFormFields()
-  // console.log('errored!')
 }
 
 // Post Success
 const addPostsSuccess = function (data) {
   clearMessageDiv()
-  $('#userFacingPostMsg').append('Sweet, you just created a post!')
   clearFormFields()
-  // console.log('Post successfully created!\n', data)
 }
 
 const getPostsSuccess = (data) => {
   store.post = data.posts
-  // console.log('got all posts!\n', data)
   const showPostsHtml = showPostsTemplate({object: data})
   $('.view-posts').empty()
   $('.view-posts').append(showPostsHtml)
   clearMessageDiv()
-  $('#userFacingPostMsg').append('All of your posts have been retrieved.')
   clearFormFields()
 }
 
 const updatePostsSuccess = function (data) {
-  console.log('post updated!\n', data)
   $('.update-post').modal('hide')
   clearMessageDiv()
-  $('#userFacingPostMsg').append('Alright, you just updated your post.')
   clearFormFields()
-  // console.log('post updated!\n', data)
 }
 
 const deletePostsSuccess = function (data) {
-  // console.log('post successfully deleted')
+  clearMessageDiv()
+  clearFormFields()
 }
 
-// Post Error
 const postError = function () {
   clearMessageDiv()
   $('#userFacingPostMsg').append('Post related error!')
   clearFormFields()
-  // console.log('Post errored out!')
 }
 
 module.exports = {
