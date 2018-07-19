@@ -34,6 +34,7 @@ const onSignOut = function (event) {
   event.preventDefault()
   api.signOut()
     .then(ui.signOutSuccess)
+    .then(events.onGetPosts)
     .catch(ui.authError)
 }
 
