@@ -3,6 +3,7 @@
 const store = require('./store')
 const showPostsTemplate = require('./templates/posts-view.handlebars')
 
+let signedIn = false
 // Assistant Functions
 const clearMessageDiv = function () {
   $('#userFacingAuthMsg').html('')
@@ -57,10 +58,12 @@ const signUpSuccess = function () {
 const signInSuccess = function (data) {
   clearMessageDiv()
   store.user = data.user
+  console.log(data)
   clearFormFields()
   revealChangePassSignOut()
   revealCreatePost()
   hideSignUpSignIn()
+  signedIn = true
 }
 
 const changePasswordSuccess = function () {
@@ -77,6 +80,7 @@ const signOutSuccess = function () {
   hideCreatePost()
   revealSignUpSignIn()
   delete store.user
+  signedIn = false
 }
 
 const authError = function () {
@@ -96,6 +100,14 @@ const getPostsSuccess = (data) => {
   const showPostsHtml = showPostsTemplate({object: data})
   $('.view-posts').empty()
   $('.view-posts').append(showPostsHtml)
+  if (signedIn === false) {
+    $('.update-button').hide()
+    $('.delete-button').hide()
+  } else {
+    $('.update-button').hide()
+    $('.delete-button').hide()
+    $('.' + store.user._id).show()
+  }
   clearMessageDiv()
   clearFormFields()
 }
