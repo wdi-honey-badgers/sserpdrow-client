@@ -107,6 +107,7 @@ const updatePostsSuccess = function (data) {
 }
 
 const deletePostsSuccess = function (data) {
+  $('.delete-post').modal('hide')
   clearMessageDiv()
   clearFormFields()
 }

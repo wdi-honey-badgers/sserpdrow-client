@@ -18,5 +18,5 @@ $(() => {
   $('#create-post').on('submit', events.onCreatePosts)
   $('.view-posts').on('submit', '.update-post-form', events.onUpdatePosts)
   // $('#get-posts').on('click', events.onGetPosts)
-  $('.view-posts').on('click', '.delete-button', events.onDeletePosts)
+  $('.view-posts').on('submit', '.destroy-post-form', events.onDeletePosts)
 })
