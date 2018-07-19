@@ -16,7 +16,7 @@ $(() => {
   $('#sign-out').on('click', authEvents.onSignOut)
   $('body').on('submit', '#delete-posts', events.onDeletePosts)
   $('#create-post').on('submit', events.onCreatePosts)
-  $('#update-post').on('submit', events.onUpdatePosts)
+  $('.view-posts').on('submit', '.update-post-form', events.onUpdatePosts)
   $('#get-posts').on('click', events.onGetPosts)
   $('.view-posts').on('click', '.delete-button', events.onDeletePosts)
 })
