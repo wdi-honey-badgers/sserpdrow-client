@@ -24,8 +24,8 @@ const onUpdatePosts = function (event) {
   const data = getFormFields(event.target)
   const id = $(event.target).data('id')
   api.updatePosts(data, id)
+    .then(api.getPosts)
     .then(ui.updatePostsSuccess)
-    .then(onGetPosts)
     .catch(ui.postError)
 }
 
@@ -33,7 +33,7 @@ const onDeletePosts = function (event) {
   event.preventDefault()
   const data = $(event.target).data('id')
   api.deletePosts(data)
-    .then(ui.deletePostsSuccess(data))
+    .then(ui.deletePostsSuccess)
     .then(onGetPosts)
     .catch(ui.postError)
 }
