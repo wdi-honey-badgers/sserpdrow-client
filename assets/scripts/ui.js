@@ -139,6 +139,7 @@ const deletePostsSuccess = function (data) {
 
 const postError = function () {
   clearMessageDiv()
+  $('.update-post').modal('hide')
   $('#userFacingPostMsg').append('Post related error!')
   clearFormFields()
 }

@@ -33,7 +33,7 @@ const onDeletePosts = function (event) {
   event.preventDefault()
   const data = $(event.target).data('id')
   api.deletePosts(data)
-    .then(ui.deletePostsSuccess(data))
+    .then(ui.deletePostsSuccess)
     .then(onGetPosts)
     .catch(ui.postError)
 }
