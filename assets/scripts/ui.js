@@ -58,7 +58,6 @@ const signUpSuccess = function () {
 const signInSuccess = function (data) {
   clearMessageDiv()
   store.user = data.user
-  console.log(data)
   clearFormFields()
   revealChangePassSignOut()
   revealCreatePost()
