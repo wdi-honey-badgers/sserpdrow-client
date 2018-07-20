@@ -191,6 +191,11 @@ https://imgur.com/ut4CfyV
     * Each company will have admins that can publish and delete posts while normal users can edit and save drafts
     * Clicking on a post will show an expanded view of the post
 
+Image Credits:
+The Weebl (via Newgrounds.com)
+AlishmcMalish (via DeviantArt.com)
+Anita Rodic (via pinterest.com)
+
 ## Story about development planning/obstacles:
 Captains log, Star date 201807171632.
 Raining. Dreary. Our voyage began in class room 6. We first created Wireframes, ERD's, User Stories, and a Scrum board. Had a 3 on 1 with Mike - He recommended we actually shrink our ERD to combine Users with Companies (make them the same entity). And the Earth fell below as we spread our wings in flight. Our "Posts" resource (which doubles as web pages and Blog posts for the time being) was created by Dan, our user Authentication was created by Catherine, merged and deployed all of these things, connected to the front end client side view, and tested their functionality via curl scripts and HTML forms.
