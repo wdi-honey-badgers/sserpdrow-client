@@ -2,28 +2,73 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+body {
+  background-color: #3e3e3e;
+  color: #ccc;
+}
+
+.container-fluid {
+  background-color: #3e3e3e;
+}
+
+.navbar {
+  border-color: #3e3e3e;
+}
+
+.navbar p,
+.navbar a {
+  color: #ccc !important;
+}
+
 .sidebar {
   border-right: solid, 2px, #ccc;
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
   height: 300px;
   margin: 20px auto;
   min-height: 300px;
+  overflow: auto;
   position: relative;
   transition: 0.3s;
+
   &:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   }
 }
 
 .card-container {
-    padding: 2px 16px;
+  padding: 2px 16px;
 }
 
 .card-buttons {
   bottom: 10px;
   float: right;
   position: absolute;
+}
+
+.head1 {
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+
+.head2 {
+  float: clear right;
+  height: 90px;
+  width: 95px;
+}
+
+.messages {
+  float: clear;
+}
+
+.honeybadgers {
+  height: 100px;
+  width: 100px;
+}
+
+a {
+  color: #ccc;
 }
