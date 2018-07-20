@@ -113,8 +113,21 @@ const getPostsSuccess = (data) => {
 }
 
 const updatePostsSuccess = function (data) {
-  $('.update-post').modal('hide')
   clearMessageDiv()
+  $('.update-post').modal('hide')
+  store.post = data.posts
+  const showPostsHtml = showPostsTemplate({object: data})
+  $('.view-posts').empty()
+  $('.view-posts').append(showPostsHtml)
+  if (signedIn === false) {
+    $('.update-button').hide()
+    $('.delete-button').hide()
+  } else {
+    $('.update-button').hide()
+    $('.delete-button').hide()
+    $('.' + store.user._id).show()
+  }
+  $('#userFacingPostMsg').append('You updated a post!')
   clearFormFields()
 }
 
