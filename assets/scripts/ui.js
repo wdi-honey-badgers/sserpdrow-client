@@ -143,6 +143,10 @@ const postError = function () {
   clearFormFields()
 }
 
+const showPost = (id) => {
+  $('#post-' + id).modal('show')
+}
+
 module.exports = {
   signUpSuccess,
   signInSuccess,
@@ -153,5 +157,6 @@ module.exports = {
   getPostsSuccess,
   updatePostsSuccess,
   deletePostsSuccess,
-  postError
+  postError,
+  showPost
 }
