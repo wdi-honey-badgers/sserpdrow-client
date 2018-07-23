@@ -38,9 +38,18 @@ const onDeletePosts = function (event) {
     .catch(ui.postError)
 }
 
+const OnShowPost = (event) => {
+  console.log('post clicked')
+  event.preventDefault()
+  const data = $(event.target).data('id')
+  console.log('is is:\n', data)
+  ui.showPost(data)
+}
+
 module.exports = {
   onCreatePosts,
   onGetPosts,
   onUpdatePosts,
-  onDeletePosts
+  onDeletePosts,
+  OnShowPost
 }

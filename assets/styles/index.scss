@@ -43,9 +43,9 @@ body {
 }
 
 .card-buttons {
-  bottom: 10px;
+  bottom: 0;
   float: right;
-  position: absolute;
+  position: sticky;
 }
 
 .head1 {
@@ -67,6 +67,10 @@ body {
 .honeybadgers {
   height: 100px;
   width: 100px;
+}
+
+.show-all-modal {
+  color: black;
 }
 
 a {
