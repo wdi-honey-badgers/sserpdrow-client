@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sserpdrow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#hamburger" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse auth" id="hamburger">
+        <!-- External User Auth -->
+        <ul class="nav navbar-nav navbar-right user-auth auth-external" id="authExternal">
+          <li class="dropdown" id="signUpSection">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Join <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <form class="navbar-form" id="sign-up-form">
+                  <!-- Sign Up Email Input -->
+                  <div class="form-group">
+                    <label for="signUpEmailInput">Email address</label>
+                    <input type="email" class="form-control" id="signUpEmailInput" name="credentials[email]" placeholder="Email" required>
+                  </div>
+                  <!-- Sign Up Password Input -->
+                  <div class="form-group">
+                    <label for="signUpPassword">Password</label>
+                    <input type="password" class="form-control" id="signUpPassword" name="credentials[password]" placeholder="Password" required>
+                  </div>
+                  <!-- Sign Up Confirm Password Input -->
+                  <div class="form-group">
+                    <label for="signUpPasswordConfirm">Confirm Password</label>
+                    <input type="password" class="form-control" id="signUpPasswordConfirm" name="credentials[password_confirmation]" placeholder="Confirm Password" required>
+                  </div>
+                  <!-- Sign Up Submit -->
+                  <button class="btn btn-default" type="submit">Sign Up</button>
+                </form>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown login-dropdown" id="signInSection">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <form class="navbar-form" id="sign-in-form">
+                  <div class="form-group">
+                    <!-- Sign In Email Input -->
+                    <label for="signInEmailInput">Email address</label>
+                    <input type="email" class="form-control" id="signInEmailInput" name="credentials[email]" placeholder="Email" required>
+                  </div>
+                  <div class="form-group">
+                    <!-- Sign In Password Input -->
+                    <label for="signInPassword">Password</label>
+                    <input type="password" class="form-control" id="signInPassword" name="credentials[password]" placeholder="Password" required>
+                  </div>
+                  <!-- Sign In Submit -->
+                  <button class="btn btn-default" type="submit">Sign In</button>
+                </form>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <!-- Internal User Auth -->
+        <ul class="nav navbar-nav navbar-right user-auth auth-internal hidden" id="authInternal">
+          <li class="dropdown join-dropdown" id="changePassSection">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Change Password <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <form class="navbar-form" id="change-pw-form">
+                  <div class="form-group">
+                    <!-- Change Password Old Input -->
+                    <label for="changePasswordOld">Old Password</label>
+                    <input type="password" class="form-control" id="changePasswordOld" name="passwords[old]" placeholder="Old Password" required>
+                  </div>
+                  <div class="form-group">
+                    <!-- Change Password New Input -->
+                    <label for="changePasswordNew">New Password</label>
+                    <input type="password" class="form-control" id="changePasswordNew" name="passwords[new]" placeholder="New Password" required>
+                  </div>
+                  <!-- Change Password Submit -->
+                  <button class="btn btn-default" type="submit">Change Password</button>
+                </form>
+              </li>
+            </ul>
+          </li>
+          <li id='sign-out'>
+            <button class="btn btn-default" id="signOutBtn" type="submit">Sign Out</button>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <div class="titles">
+    <div class="wrapper container">
+      <div class="row">
+        <div class="col-xs-12">
+          <img class="head1 col-sm-2" src="./public/IMG_6549.JPG">
+          <h1 class="col-sm-10">Sserp, drow?</h1>
+        </div>
+        <div class="col-xs-12">
+          <span class="col-sm-6"></span>
+          <h2 class="col-sm-4">Not much. Sserp with you?</h2>
+          <img class="head2 col-sm-2" src="./public/IMG_6547.JPG">
+        </div>
+      </div>
+    </div>
+    <div class="row messages">
+      <div class="col-xs-12">
+        <div id="userFacingAuthMsg"></div>
+        <div id="userFacingPostMsg"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 create-post hidden" id="create-post-wrapper">
+        <h2>Create Post</h2>
+        <form id="create-post">
+          <div class="form-group">
+            <label class="radio-inline">
+                <input type="radio" name="post[blog]" id="post-blog" value="true"> Blog
+              </label>
+            <label class="radio-inline">
+                <input type="radio" name="post[blog]" id="post-page" value="false"> Web Page
+              </label>
+          </div>
+          <div class="form-group">
+            <label for="post-title">Post Title</label>
+            <input type="text" class="form-control" name="post[title]" id="post-title" placeholder="Your post title">
+          </div>
+          <div class="form-group">
+            <label for="post-content">Post Content</label>
+            <textarea type="text" class="form-control" name="post[content]" id="post-content" placeholder="Content goes here!" rows="3"></textarea>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="view-posts"></div>
+  </div>
+  <footer>
+    <p>A website for drow, created by <span class="honeybadger">Team Honey Badgers.</span></p><br>
+    <a href="https://github.com/camcginty"><img src="./public/IMG_6561.JPG" class="honeybadgers"><span class="honeybadgers">Honey Badger Catherine</span></a>
+    <a href="https://github.com/DanNissen"><img src="./public/IMG_6561.JPG" class="honeybadgers"><span class="honeybadgers" id="honeybadger2">Honey Badger Dan</span></a>
+    <a href="https://github.com/SeanDonnellanWDI"><img src="./public/IMG_6561.JPG" class="honeybadgers"><span class="honeybadgers">Honey Badger Sean</span></a>
+  </footer>
+</body>
+
+</html>
