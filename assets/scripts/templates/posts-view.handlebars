@@ -2,7 +2,7 @@
   {{#each object as |posts|}}
     {{#each posts as |post|}}
       <!-- Card -->
-      <div class="col-xs-6 col-md-3 card {{post._id}} post-card" data-id={{post._id}}>
+      <div class="col-xs-12 col-sm-6 col-md-3 card {{post._id}} post-card" data-id={{post._id}}>
         <div data-id={{post._id}} class="card-container">
           {{#if post.blog}}
             <sub><b>Blog</b></sub>
@@ -87,7 +87,7 @@
       </div>
       <!--  content modal -->
       <div class="show-all-modal modal {{post._id}}-content" tabindex="-1" role="dialog" id="post-{{post._id}}">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">{{post.title}}</h5>
